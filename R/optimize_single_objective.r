@@ -11,7 +11,7 @@
 #' @export
 
 
-optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, m=NULL, p_depends_delta=TRUE, disp=0, pMAC_mode=FALSE, Nmat=NULL) {
+optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, m=NULL, p_depends_delta=TRUE, disp=0, pMAC_mode=FALSE, Nmat=NULL, ncpu=ncpu) {
 
    proceed=TRUE
 
