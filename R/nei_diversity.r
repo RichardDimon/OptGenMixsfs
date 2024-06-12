@@ -33,6 +33,7 @@ nei_diversity <- function(gt, w=NULL) {
    }
 
    p <- calc_afs(gt, w)
+   p <- p[which(is.na(p)==FALSE)] #remove na values to calulate nei diversity 
 
    # calculate diversity from frequencies
    Hs <- 0
