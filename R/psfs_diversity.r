@@ -5,7 +5,7 @@
 #' @param gt  - genotype matrix (individuals, loci)
 #' @param w   - vector of weights
 #' @param m   - projection value
-#' @return psfs, a float value 
+#' @return psfs - a float value 
 #' @author Jason Bragg (jasongbragg@gmail.com)
 #' @export
 
