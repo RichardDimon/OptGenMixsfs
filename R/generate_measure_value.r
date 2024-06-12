@@ -8,7 +8,7 @@
 #' @author Jason Bragg (jasongbragg@gmail.com)
 #' @export
 
-generate_measure_value <- function(v, measure=NULL, w=NULL, q=NULL, loc=NULL, m=NULL, disp=0, pMAC_mode=NULL, Nmat=NULL, ncpu=NULL) {
+generate_measure_value <- function(v, measure=NULL, w=NULL, q=NULL, loc=NULL, m=NULL, disp=0, pMAC_mode=NULL, Nmat=NULL, ncpu=1) {
 
      if (is.null(measure)) {
         cat("   A measure is required \n")
