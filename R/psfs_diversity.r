@@ -37,6 +37,11 @@ psfs_diversity <- function(gt, m, w=NULL, pMAC_mode=FALSE, Nmat=NULL, ncpu=NULL)
    fixedSFS <- projected_SFS[1] + projected_SFS[m+1]
    ppSFS <- (sum(projected_SFS) - fixedSFS)/sum(projected_SFS)
 
+     
+  if (is.na(ppSFS)){
+      ppSFS <- 0
+  }
+
    return(ppSFS)
 }
 
