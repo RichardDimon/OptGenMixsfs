@@ -108,6 +108,10 @@ optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps
 
          proposal_summary <- generate_measure_value(v, measure=measure, w=proposed_weights, q=q, m=m, disp=disp, pMAC_mode=pMAC_mode, Nmat=Nmat)
 
+         if (is.na(proposal_summary)){
+            proposal_summary <- 0
+          }
+         
          temp             <- temp_scheduler(s, max_steps, max_t=max_t)
 
          accept_proposal  <- proposal_accept_reject(summary=summary, proposal_summary=proposal_summary, temp, p_depends_delta=p_depends_delta)
