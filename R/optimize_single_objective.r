@@ -11,7 +11,7 @@
 #' @export
 
 
-optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, m=NULL, p_depends_delta=TRUE, disp=0, pMAC_mode=FALSE, Nmat=NULL, ncpu=NULL, unlim_m = FALSE) {
+optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, m=NULL, p_depends_delta=TRUE, disp=0, pMAC_mode=FALSE, Nmat=NULL, ncpu=NULL, unlim_m = NULL) {
 
    proceed=TRUE
 
@@ -20,6 +20,9 @@ optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps
    if ( is.null(gt) & is.null(sm)) {
       cat( "   Provide either initial_weights or a number of target individuals (N_t) \n" )
       proceed=FALSE
+   }
+   if (is.null(unlim_m)){
+       unlim_m <- FALSE     
    }
 
    if ( !is.null(gt) & !is.null(sm)) {
