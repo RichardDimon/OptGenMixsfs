@@ -109,7 +109,7 @@ optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps
 
          proposed_weights <- propose_new_weights(weights, w_max=weights_max, w_min=weights_min)
 
-         proposal_summary <- generate_measure_value(v, measure=measure, w=proposed_weights, q=q, m=m, disp=disp, pMAC_mode=pMAC_mode, Nmat=Nmat)
+         proposal_summary <- generate_measure_value(v, measure=measure, w=proposed_weights, q=q, m=m, disp=disp, pMAC_mode=pMAC_mode, Nmat=Nmat, ncpu=ncpu, unlim_m = unlim_m)
 
          if (is.na(proposal_summary)){
             proposal_summary <- 0
