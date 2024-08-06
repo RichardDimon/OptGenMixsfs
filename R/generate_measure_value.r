@@ -8,7 +8,7 @@
 #' @author Jason Bragg (jasongbragg@gmail.com)
 #' @export
 
-generate_measure_value <- function(v, measure=NULL, w=NULL, q=NULL, loc=NULL, m=NULL, disp=0, pMAC_mode=NULL, Nmat=NULL, ncpu=1) {
+generate_measure_value <- function(v, measure=NULL, w=NULL, q=NULL, loc=NULL, m=NULL, disp=0, pMAC_mode=NULL, Nmat=NULL, ncpu=1, unlim_m=FALSE) {
 
      if (is.null(measure)) {
         cat("   A measure is required \n")
@@ -20,7 +20,7 @@ generate_measure_value <- function(v, measure=NULL, w=NULL, q=NULL, loc=NULL, m=
       }
 
       if (measure=="psfs") { 
-            return( psfs_diversity(gt=v, w=w, m=m, pMAC_mode=pMAC_mode, Nmat=Nmat, ncpu=ncpu) ) 
+            return( psfs_diversity(gt=v, w=w, m=m, pMAC_mode=pMAC_mode, Nmat=Nmat, ncpu=ncpu, unlim_m=unlim_m) ) 
       }
 
       if (measure=="shannon") {
