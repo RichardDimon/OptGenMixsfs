@@ -11,7 +11,7 @@
 #' @export
 
 
-optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, m=NULL, p_depends_delta=TRUE, disp=0, pMAC_mode=FALSE, Nmat=NULL, ncpu=NULL) {
+optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, m=NULL, p_depends_delta=TRUE, disp=0, pMAC_mode=FALSE, Nmat=NULL, ncpu=NULL, unlim_m = FALSE) {
 
    proceed=TRUE
 
@@ -73,7 +73,7 @@ optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps
 
    
    # generate a value of objective measure for initial
-   summary <- generate_measure_value(v, measure=measure, w=initial_weights, q=q, m=m, disp=disp, pMAC_mode=pMAC_mode, Nmat=Nmat, ncpu=ncpu)
+   summary <- generate_measure_value(v, measure=measure, w=initial_weights, q=q, m=m, disp=disp, pMAC_mode=pMAC_mode, Nmat=Nmat, ncpu=ncpu, unlim_m = unlim_m)
 
    # if objective measure initial returns NULL, problem
    if (is.null(summary)) {
