@@ -29,9 +29,9 @@ psfs_diversity <- function(gt, m, w=NULL, pMAC_mode=FALSE, Nmat=NULL, ncpu=NULL,
    }
 
    if (pMAC_mode) {
-      projected_SFS <- project_SFS_from_MAC(wgt, Nmat, m, ncpu, unlim_m=unlim_m)
+      projected_SFS <- project_SFS_from_MAC(gt_MAC=wgt, gt_N=Nmat, m=m, ncpu=ncpu, unlim_m=unlim_m)
    } else {
-      projected_SFS <- project_SFS_from_genotypes(wgt, m, ncpu, unlim_m=unlim_m)
+      projected_SFS <- project_SFS_from_genotypes(gt_SNP=wgt, m=m, ncpu=ncpu, unlim_m=unlim_m)
    }
 
    fixedSFS <- projected_SFS[1] + projected_SFS[m+1]
