@@ -69,14 +69,10 @@ optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps
       require(sfsCalcs)
    }
 
-
-
-
    summary <- NULL
-
-   
+  
    # generate a value of objective measure for initial
-   summary <- generate_measure_value(v, measure=measure, w=initial_weights, q=q, m=m, disp=disp, pMAC_mode=pMAC_mode, Nmat=Nmat, ncpu=ncpu, unlim_m = unlim_m)
+   summary <- generate_measure_value(v=v, measure=measure, w=initial_weights, q=q, m=m, disp=disp, pMAC_mode=pMAC_mode, Nmat=Nmat, ncpu=ncpu, unlim_m = unlim_m)
 
    # if objective measure initial returns NULL, problem
    if (is.null(summary)) {
