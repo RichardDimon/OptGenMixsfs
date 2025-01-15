@@ -14,7 +14,7 @@ propose_initial_weights <- function(N_g, N_t, w_max=NULL, verbose=FALSE) {
    if (verbose) {cat("   Generating initial weights at random \n")}
 
    # get an initial set of weights by sampling with replacement
-   vector_initial    <- sample(N_g,size=N_t,replace=TRUE)
+   vector_initial    <- sample(N_g,size=N_t,replace=FALSE) #i have changed replace=T to replace=F in this version. THIS ENSURES NO SAMPLE IS GETTING CHOSEN 2 OR MORE TIMES
 
    # simpler to use table (but in case re-implemented)
    collapse_weights <- function(vi, N_g) {
