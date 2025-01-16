@@ -115,8 +115,8 @@ optimize_multi_objective <- function( v1=NULL, v2=NULL, measure_1=NULL, measure_
 
          proposed_weights   <- propose_new_weights(weights, w_max=weights_max, w_min=weights_min)
 
-         proposal_summary_1 <- generate_measure_value(v1, measure=measure_1, w=proposed_weights, q=q, disp=disp)
-         proposal_summary_2 <- generate_measure_value(v2, measure=measure_2, w=proposed_weights, q=q, disp=disp)
+         proposal_summary_1 <- generate_measure_value(v1, measure=measure_1, w=proposed_weights, q=q, disp=disp, ncpu = ncpu, unlim_m = ulimM, pMAC_mode = pMAC_mode)
+         proposal_summary_2 <- generate_measure_value(v2, measure=measure_2, w=proposed_weights, q=q, disp=disp,  ncpu = ncpu, unlim_m = ulimM, pMAC_mode = pMAC_mode)
 
          temp               <- temp_scheduler(s, max_steps, max_t=max_t)
 
