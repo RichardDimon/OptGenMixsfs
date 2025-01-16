@@ -89,7 +89,7 @@ optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps
         } else {
           
           #check for any kinship here and reject if there is:
-          sampstotestforkin <- rownames(gt_sw_comp2)[which(proposed_weights>0)]
+          sampstotestforkin <- rownames(gt)[which(proposed_weights>0)]
           kincombos <- combn(sampstotestforkin,2)
           finalkinval <- 0
           for (u in (length(kincombos)/2)){
