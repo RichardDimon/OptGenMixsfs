@@ -5,13 +5,13 @@
 #' @param initial_weights   - a vector of initial weights
 #' @param weights_max       - maximum weights for each individual
 #' @param weights_min       - minimum weights for each individual
-#' @param max_t             - maximum temperature 
+#' @param max_t             - maximum temperature
 #' @return a list of output 
 #' @author Jason Bragg (jasongbragg@gmail.com)
 #' @export
 
 
-optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, m=NULL, p_depends_delta=TRUE, disp=0, pMAC_mode=FALSE, Nmat=NULL, ncpu=NULL, unlim_m = NULL) {
+optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, m=NULL, p_depends_delta=TRUE, disp=0, pMAC_mode=FALSE, Nmat=NULL, ncpu=NULL, unlim_m = NULL, kinall=NULL) {
 
   proceed = TRUE
   if (is.null(gt) & is.null(sm)) {
