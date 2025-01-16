@@ -97,6 +97,7 @@ optimize_single_objective <- function( gt=NULL, sm=NULL, measure=NULL, max_steps
           }
           
           if (finalkinval>0){
+             cat(" Kinship greater than 0 - Reject Proposal \n")
             accept_proposal <- FALSE
           } else{
             accept_proposal <- proposal_accept_reject(summary = summary,proposal_summary = proposal_summary, t=temp, p_depends_delta = p_depends_delta)
