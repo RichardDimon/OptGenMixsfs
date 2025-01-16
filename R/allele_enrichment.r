@@ -26,6 +26,8 @@ allele_enrichment <- function(gt, w=NULL, loc=NULL, rec=FALSE) {
    } else {
       wm <- matrix(rep(w,ncol(gt)),ncol=ncol(gt),byrow=FALSE) 
       p  <- colSums(gt*wm) / (nrow(gt)*2) / mean(w)
+        #remove any missing rows -  TRAIL IN NEW VERSION SING MULTI OBJECTIVE OPTIMISATION
+   p <- p[which(is.na(p)==FALSE)]
    }
 
    if (is.null(loc)) {
