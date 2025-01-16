@@ -11,7 +11,7 @@
 #' @export
 
 
-optimize_multi_objective <- function( v1=NULL, v2=NULL, measure_1=NULL, measure_2=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, p_depends_delta=FALSE, disp=0, c1=1, c2=1, cboth=1, nda=FALSE, min_t=0, nd_samples=100,  ncpu = ncpu, unlim_m = ulimM, pMAC_mode = FALSE) {
+optimize_multi_objective <- function( v1=NULL, v2=NULL, measure_1=NULL, measure_2=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, p_depends_delta=FALSE, disp=0, c1=1, c2=1, cboth=1, nda=FALSE, min_t=0, nd_samples=100,  ncpu = ncpu, unlim_m = ulimM, pMAC_mode = FALSE, kinall = NULL) {
 
    cat( "\n\n" )
    cat( "  Multi-objective optimization commencing \n" )
@@ -128,10 +128,39 @@ optimize_multi_objective <- function( v1=NULL, v2=NULL, measure_1=NULL, measure_
             }
          }
 
-         accept_proposal    <- multi_accept_reject(summary_1=summary_1, summary_2=summary_2, 
+
+ if (is.null(kinall)) {
+          accept_proposal    <- multi_accept_reject(summary_1=summary_1, summary_2=summary_2, 
                                                    proposal_summary_1=proposal_summary_1, proposal_summary_2=proposal_summary_2, 
                                                    temp, p_depends_delta=p_depends_delta, c1=c1, c2=c2, cboth=cboth)
 
+      }
+      else {
+        sampstotestforkin <- rownames(gt_sw_comp2)[which(proposed_weights > 
+          0)]
+        kincombos <- combn(sampstotestforkin, 2)
+        finalkinval <- 0
+        for (u in (length(kincombos)/2)) {
+          finalkinval <- as.numeric(finalkinval + kinall$value[which(kinall$Var1 == 
+            kincombos[, u][1] & kinall$Var2 == kincombos[, 
+            u][2])])
+        }
+        if (finalkinval > 0) {
+          cat(" Kinship greater than 0 - Reject Proposal \n")
+          accept_proposal <- FALSE
+        }
+        else {
+           accept_proposal    <- multi_accept_reject(summary_1=summary_1, summary_2=summary_2, 
+                                                   proposal_summary_1=proposal_summary_1, proposal_summary_2=proposal_summary_2, 
+                                                   temp, p_depends_delta=p_depends_delta, c1=c1, c2=c2, cboth=cboth)
+
+        }
+      }
+
+
+
+
+       
 
          if (accept_proposal) {
             weights <- proposed_weights
