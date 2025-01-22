@@ -57,9 +57,9 @@ optimize_multi_objective <- function( v1=NULL, v2=NULL, measure_1=NULL, measure_
 
    
    # generate a value of objective measure for initial
-   summary_1 <- generate_measure_value(v1, measure=measure_1, w=initial_weights, q=q, disp=disp, ncpu = ncpu, unlim_m = ulimM, pMAC_mode = pMAC_mode)
-   summary_2 <- generate_measure_value(v2, measure=measure_2, w=initial_weights, q=q, disp=disp, ncpu = ncpu, unlim_m = ulimM, pMAC_mode = pMAC_mode)
-
+   summary_1 <- generate_measure_value(v=v1, measure=measure_1, w=initial_weights, q=q, m=m,  Nmat = Nmat, disp=disp, ncpu = ncpu, unlim_m = ulimM, pMAC_mode = pMAC_mode)
+   summary_2 <- generate_measure_value(v=v2, measure=measure_2, w=initial_weights, q=q, m=m,  Nmat = Nmat, disp=disp, ncpu = ncpu, unlim_m = ulimM, pMAC_mode = pMAC_mode)
+  
    # if objective measure initial returns NULL, problem
    if (is.null(summary)) {
       proceed=FALSE
