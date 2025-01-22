@@ -11,7 +11,7 @@
 #' @export
 
 
-optimize_multi_objective <- function( v1=NULL, v2=NULL, measure_1=NULL, measure_2=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, p_depends_delta=FALSE, disp=0, c1=1, c2=1, cboth=1, nda=FALSE, min_t=0, nd_samples=100,  ncpu = ncpu, unlim_m = ulimM, pMAC_mode = FALSE, kinall = NULL) {
+optimize_multi_objective <- function( v1=NULL, v2=NULL, measure_1=NULL, measure_2=NULL, max_steps=10000, N_t=NULL, initial_weights=NULL, weights_max=NULL, weights_min=NULL, max_t=1, q=NULL, p_depends_delta=FALSE, disp=0, c1=1, c2=1, cboth=1, nda=FALSE, min_t=0, nd_samples=100,  Nmat=NULL, ncpu = ncpu, unlim_m = ulimM, pMAC_mode = FALSE, kinall = NULL) {
 
    cat( "\n\n" )
    cat( "  Multi-objective optimization commencing \n" )
